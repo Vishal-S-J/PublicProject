@@ -1,0 +1,1 @@
+INSERT INTO EMPLOYEE (emp_first_name, emp_last_name, email, emp_department, emp_project, emp_sal) VALUES ('James', 'Digg', 'James.Digg@gmail.com', 'IT', 'Own Product', 50000.00);
