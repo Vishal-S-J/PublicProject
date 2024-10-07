@@ -33,8 +33,8 @@ public class SecurityConfiguration {
                         auth -> auth
                                 .requestMatchers("/h2-console/**", "/login")
                                 .permitAll()
-//                                .requestMatchers("/**")
-//                                .permitAll()
+                                .requestMatchers("/**")
+                                .permitAll()
 //                                .requestMatchers("/**")
 //                                .hasRole(Role.ADMIN.toString())
                                 .anyRequest()
