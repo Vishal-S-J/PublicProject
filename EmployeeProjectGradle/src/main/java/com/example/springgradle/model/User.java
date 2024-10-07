@@ -2,6 +2,7 @@ package com.example.springgradle.model;
 
 import com.example.springgradle.security.Role;
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Builder
 @Table(name = "_user")
 public class User implements UserDetails {
 
