@@ -1,13 +1,10 @@
 package com.example.springgradle.security.authenticate;
 
-import com.example.springgradle.security.JwtService;
+import com.example.springgradle.web.View;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -20,6 +17,21 @@ public class AuthenticationController {
             @RequestBody RegisterRequest registerRequest
     ) {
         return ResponseEntity.ok(authenticationService.register(registerRequest));
+    }
+
+    @PostMapping("/registerUI")
+    public String registerFromUI(
+            @RequestParam String username,
+            @RequestParam String password
+    ) {
+        System.out.println("registerFromUI :: " + ResponseEntity.ok(authenticationService.registerUI(username, password)));
+        ResponseEntity<AuthenticationResponse> response = ResponseEntity.ok(authenticationService.registerUI(username, password));
+
+        if(response.getStatusCode().is2xxSuccessful()) {
+            return View.INDEX;
+//            return "redirect:/index";
+        }
+        return "Wrong page";
     }
 
     @PostMapping("/authenticate")

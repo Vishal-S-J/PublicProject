@@ -23,4 +23,9 @@ public class EmployeeController {
         model.addAttribute("employees", employees);
         return View.INDEX;
     }
+
+    @GetMapping("/employeeAPI/all")
+    public List<Employee> showEmployeeListAPI() {
+        return employeeService.getAllEmployee();
+    }
 }
