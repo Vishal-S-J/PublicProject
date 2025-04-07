@@ -24,10 +24,12 @@ public class SecurityConfiguration {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/**")
-                        .permitAll()
-                        .anyRequest()
-                        .authenticated()
+                        .requestMatchers("/api/register", "/api/login", "/api/authenticate").permitAll()
+                        .requestMatchers("/api/public/**").permitAll()
+                        .requestMatchers("/api/admin/**").hasRole(Role.ADMIN.toString())
+                        .requestMatchers("/api/user/**").hasAnyRole(Role.USER.toString(), Role.ADMIN.toString())
+                        .requestMatchers("/employee/**").authenticated()
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

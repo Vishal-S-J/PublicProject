@@ -20,5 +20,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     public List<Employee> findByEmployeeProject_ProjectName(String projectName);
 
-    public Employee setEmployeeProjectFor(int projectId, int employeeId);
+//    public Employee setEmployeeProjectFor(int projectId, int employeeId);
 }

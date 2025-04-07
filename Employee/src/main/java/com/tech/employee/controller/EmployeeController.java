@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/auth/employee")
+//@RequestMapping("/api/v1/auth/employee")
+@RequestMapping("/employee")
 public class EmployeeController  {
 
     private final EmployeeService employeeService;
@@ -56,8 +57,8 @@ public class EmployeeController  {
         return this.employeeService.getAllEmployeeBySalaryFromAndTo(fromSal, toSal);
     }
 
-    @PatchMapping("/update/{employeeId}")
-    public Employee updateEmployeeProjectName(@RequestParam int projectId, @PathVariable int employeeId) {
-        return this.employeeService.updateEmployeeProjectIdByEmployeeId(projectId, employeeId);
-    }
+//    @PatchMapping("/update/{employeeId}")
+//    public Employee updateEmployeeProjectName(@RequestParam int projectId, @PathVariable int employeeId) {
+//        return this.employeeService.updateEmployeeProjectIdByEmployeeId(projectId, employeeId);
+//    }
 }

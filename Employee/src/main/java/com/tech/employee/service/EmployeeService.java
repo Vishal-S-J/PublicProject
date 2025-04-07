@@ -48,7 +48,7 @@ public class EmployeeService {
         return employeeRepository.findBySalaryBetween(fromSalary, toSalary);
     }
 
-    public Employee updateEmployeeProjectIdByEmployeeId(int projectId, int employeeId) {
-        return employeeRepository.setEmployeeProjectFor(projectId, employeeId);
-    }
+//    public Employee updateEmployeeProjectIdByEmployeeId(int projectId, int employeeId) {
+//        return employeeRepository.setEmployeeProjectFor(projectId, employeeId);
+//    }
 }
